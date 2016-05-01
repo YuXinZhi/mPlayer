@@ -4,18 +4,27 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!--
+  	 <manifest>标签中package属性用于设置应 用程序的进程名，即在运行时使用ddms查看到的进程名。
+   	<original-package>标签用以设置应用 源码包名，即Java文件所在的源码程序包层次，android工程中真实的源代码层次结构。
+ 	 <manifest>中package属性若与<original-package>的android:name值相同，配置组建时android:name属性值 可以使用".ClassName"形式。
+  	 使用<original-package>标签后，在<activity><service><receiver><provider>中的android:name属性需要写完整的包名，".ClassName"形式无效。
+   	注意:<manifest>标签中package属性只是告诉系统应用的进程名；因此进程名（Manifest中package属性的值）与<original-package>的值可以不一样。
+    -->
+    <original-package android:name="com.example.mplayer" />
+
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="23" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.mplayer.ui.MainActivity"
-            android:label="@string/app_name" >
+        android:label="@string/musicbrowserlabel"
+        android:taskAffinity="android.task.music"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.mplayer.ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
